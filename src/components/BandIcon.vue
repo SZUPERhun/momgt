@@ -2,7 +2,7 @@
     <div>
         <router-link :to="{ name: 'band', params: { id: band.id, band: band }}">
             <div class="pic">
-                <b-img class="img" :src="require(`@/assets/clownpepe.jpg`)" fluid rounded :alt="band.name"></b-img>
+                <b-img class="img" :src="require(`@/assets/` + band.id + `.jpg`)" fluid rounded :alt="band.name"></b-img>
                 <div class="overlay"></div>
                 <div class="info">
                     <p>{{ band.name }}</p>
@@ -54,5 +54,7 @@
         bottom: 20px;
         right: 200px;
         color: white;
+        font-size: 30px;
+        -webkit-text-stroke: 1px black;
     }
 </style>

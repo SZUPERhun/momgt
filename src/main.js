@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import App from './App.vue';
-
 import Router from 'vue-router';
+
 import Index from '@/views/Index';
 import Bands from '@/views/Bands';
 import Band from '@/views/Band';
@@ -16,10 +16,16 @@ Vue.use(BootstrapVue);
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 
-import Vuex from 'vuex'
+import Vuex from 'vuex';
 Vue.use(Vuex);
 import { store } from '@/store/store';
 
+import axios from 'axios';
+import VueAxios from 'vue-axios';
+Vue.use(VueAxios, axios);
+
+import VueLodash from 'vue-lodash';
+Vue.use(VueLodash);
 
 Vue.use(Router);
 const router = new Router({
