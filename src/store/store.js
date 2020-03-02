@@ -17,7 +17,7 @@ export const store = new Vuex.Store({
                   ' Trillion, ex-Neck Sprain, ex-Grand Mexican Warlock), első önálló albuma, a 2010-ben megjelent Feathers,' +
                   ' Black Flowers, amely a gyermekkorát tükrözi. Az album megjelenése óta Andris 2016. májusában mutatta be' +
                   ' új lemezét, a Foxes-t. Az albumon tizenegy dal kapott helyet, melyeket Andris személyes érzései, alvás zavara' +
-                  ' és belső problémái ihlettek. A lemez megjelenése után belföldi turnéra indult az Anna & the Barbies-sal majd,' +
+                  ' és belső problémái ihlettek. A lemez megjelenése után belföldi turnéra indult az Anna & the Barbies-sal majd, ' +
                   '2017-ben megjelent harmadik nagylemeze a Stranger, amely a legsikeresebb lemeze lett. 2018-ban a Margaret Island-dal ' +
                   'turnézott és nyáron fellépett Magyaroszág legnagyobb fesztiváljain. 2018 szeptemberében meghívást kapott a ' +
                   'Lollapalooza fesztiválra Berlinbe. 2019-ben fellépett Groningenben a Eurosonic showcase fesztiválon. 2019 ' +

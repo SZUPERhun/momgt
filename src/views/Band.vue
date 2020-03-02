@@ -5,15 +5,17 @@
         </h2>
 
         <br/><br/>
-
-        {{ band.text }}
+            <div class="col-md-12 text">
+                <b-img class="img" float :src="require(`@/assets/` + band.id + `.jpg`)"></b-img>
+                {{ band.text }}
+            </div>
 
         <br/><br/>
 
         <Albums :artist-id=getArtistId></Albums>
 
         <p>
-            <a class="back" @click="$router.push({ path: '/bands' })">back</a>
+            <a class="cursor" @click="$router.push({ path: '/bands' })">back</a>
         </p>
 
     </div>
@@ -54,7 +56,18 @@
 </script>
 
 <style scoped>
-    .back {
+    .img {
+        display: block;
+        width: 50%;
+        height: auto;
+        float: right;
+        margin: 10px;
+    }
+    .text {
+        text-align: justify;
+        text-justify: inter-word;
+    }
+    .cursor {
         cursor: pointer;
     }
 </style>

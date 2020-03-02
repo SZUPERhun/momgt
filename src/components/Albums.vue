@@ -1,22 +1,13 @@
 <template>
-    <div>
-        <div v-for="album in getAlbums" :key="album.id" >
-            <b-img class="img" :src="album.image" fluid rounded :alt="album.name"></b-img>
-            <iframe :src="`https://open.spotify.com/embed/album/${album.id}`"
-                    width="400"
-                    height="230"
-                    frameborder="0"
-                    allowtransparency="true"
-                    allow="encrypted-media">
-            </iframe>
+    <div class="row">
+        <div class="col-8">
+            <Album album-type-name="Albums" :albums="getAlbums" @updateAlbumId="updateActiveAlbumId"></Album>
+            <br/>
+            <Album album-type-name="Singles" :albums="getSingles" @updateAlbumId="updateActiveAlbumId"></Album>
         </div>
-
-        <br/>
-
-        <div v-for="single in getSingles" :key="single.id" >
-            <b-img class="img" :src="single.image" fluid rounded :alt="single.name"></b-img>
-            <iframe :src="`https://open.spotify.com/embed/album/${single.id}`"
-                    width="400"
+        <div class="col-4">
+            <iframe v-if="activeAlbumId" :src="`https://open.spotify.com/embed/album/${ activeAlbumId }`"
+                    width="350"
                     height="230"
                     frameborder="0"
                     allowtransparency="true"
@@ -27,8 +18,13 @@
 </template>
 
 <script>
+    import Album from "@/components/Album";
+
     export default {
         name: "Albums",
+        components: {
+            Album
+        },
         props: {
             artistId: {
                 type: String,
@@ -42,6 +38,7 @@
                 clientSecret: process.env.VUE_APP_CLIENTSECRET,
                 accessToken: '',
                 tokenType: '',
+                activeAlbumId: null,
             }
         },
         computed: {
@@ -60,6 +57,13 @@
             this.getAlbumData(this.artistId);
         },
         methods: {
+            updateActiveAlbumId(albumId) {
+                if (this.activeAlbumId === albumId) {
+                    this.activeAlbumId = null;
+                    return;
+                }
+                this.activeAlbumId = albumId;
+            },
             processAlbumData(data) {
                 data.items.forEach(album => {
                     this.albums.push({
@@ -103,4 +107,5 @@
 </script>
 
 <style scoped>
+
 </style>
