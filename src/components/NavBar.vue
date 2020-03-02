@@ -1,6 +1,6 @@
 <template>
     <b-navbar>
-        <b-navbar-brand href="/">Index</b-navbar-brand>
+        <b-navbar-brand href="/">MOMGT</b-navbar-brand>
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 

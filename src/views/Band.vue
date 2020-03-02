@@ -22,6 +22,8 @@
 </template>
 
 <script>
+    import _ from 'lodash';
+
     import { mapGetters } from 'vuex';
     import Albums from "@/components/Albums";
 
@@ -46,7 +48,7 @@
                 'getBandById'
             ]),
             getArtistId() {
-                return this._.last(this.band.links.find(link => link.name === 'Spotify' ).link.split('/'));
+                return _.last(this.band.links.find(link => link.name === 'Spotify' ).link.split('/'));
             },
         },
         created() {

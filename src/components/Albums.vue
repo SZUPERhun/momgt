@@ -1,18 +1,18 @@
 <template>
-    <div class="row">
-        <div class="col-8">
-            <Album album-type-name="Albums" :albums="getAlbums" @updateAlbumId="updateActiveAlbumId"></Album>
-            <br/>
-            <Album album-type-name="Singles" :albums="getSingles" @updateAlbumId="updateActiveAlbumId"></Album>
-        </div>
-        <div class="col-4">
-            <iframe v-if="activeAlbumId" :src="`https://open.spotify.com/embed/album/${ activeAlbumId }`"
-                    width="350"
-                    height="230"
-                    frameborder="0"
-                    allowtransparency="true"
-                    allow="encrypted-media">
-            </iframe>
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <Album album-type-name="Albums" :albums="getAlbums" @updateAlbumId="updateActiveAlbumId"></Album>
+                <br/>
+                <Album album-type-name="Singles" :albums="getSingles" @updateAlbumId="updateActiveAlbumId"></Album>
+            </div>
+                <iframe v-if="activeAlbumId" :src="`https://open.spotify.com/embed/album/${ activeAlbumId }`"
+                        width="350"
+                        height="300"
+                        frameborder="0"
+                        allowtransparency="true"
+                        allow="encrypted-media">
+                </iframe>
         </div>
     </div>
 </template>

@@ -24,9 +24,6 @@ import axios from 'axios';
 import VueAxios from 'vue-axios';
 Vue.use(VueAxios, axios);
 
-import VueLodash from 'vue-lodash';
-Vue.use(VueLodash);
-
 Vue.use(Router);
 const router = new Router({
   mode: 'history',
