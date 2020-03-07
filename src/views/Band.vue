@@ -5,14 +5,17 @@
         </h2>
 
         <br/><br/>
-            <div class="col-md-12 text">
-                <b-img class="img" float :src="require(`@/assets/` + band.id + `.jpg`)"></b-img>
-                {{ band.text }}
-            </div>
+
+        <div class="text">
+            <b-img class="img" float :src="require(`@/assets/` + band.id + `.jpg`)"></b-img>
+            {{ band.text }}
+        </div>
 
         <br/><br/>
 
         <Albums :artist-id=getArtistId></Albums>
+
+        <br/><br/>
 
         <p>
             <a class="cursor" @click="$router.push({ path: '/bands' })">back</a>

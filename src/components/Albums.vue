@@ -6,13 +6,13 @@
                 <br/>
                 <Album album-type-name="Singles" :albums="getSingles" @updateAlbumId="updateActiveAlbumId"></Album>
             </div>
-                <iframe v-if="activeAlbumId" :src="`https://open.spotify.com/embed/album/${ activeAlbumId }`"
-                        width="350"
-                        height="300"
-                        frameborder="0"
-                        allowtransparency="true"
-                        allow="encrypted-media">
-                </iframe>
+            <iframe v-if="activeAlbumId" :src="`https://open.spotify.com/embed/album/${ activeAlbumId }`"
+                    width="350"
+                    height="300"
+                    frameborder="0"
+                    allowtransparency="true"
+                    allow="encrypted-media">
+            </iframe>
         </div>
     </div>
 </template>
@@ -34,8 +34,8 @@
         data() {
             return {
                 albums: [],
-                clientId: process.env.VUE_APP_CLIENTID,
-                clientSecret: process.env.VUE_APP_CLIENTSECRET,
+                clientId: process.env.VUE_APP_SPOTIFYID,
+                clientSecret: process.env.VUE_APP_SPOTIFYSECRET,
                 accessToken: '',
                 tokenType: '',
                 activeAlbumId: null,
@@ -53,7 +53,6 @@
             },
         },
         async mounted() {
-            console.log(this.band);
             this.getAlbumData(this.artistId);
         },
         methods: {
@@ -63,17 +62,6 @@
                     return;
                 }
                 this.activeAlbumId = albumId;
-            },
-            processAlbumData(data) {
-                data.items.forEach(album => {
-                    this.albums.push({
-                        id: album.id,
-                        name: album.name,
-                        type: album.album_group,
-                        image: album.images[1].url,
-                        releaseDate: album.release_date,
-                    });
-                });
             },
             async getAlbumData(artistId) {
                 return await this.axios.post('https://accounts.spotify.com/api/token', null, {
@@ -101,7 +89,17 @@
                     console.log(err);
                 });
             },
-
+            processAlbumData(data) {
+                data.items.forEach(album => {
+                    this.albums.push({
+                        id: album.id,
+                        name: album.name,
+                        type: album.album_group,
+                        image: album.images[1].url,
+                        releaseDate: album.release_date,
+                    });
+                });
+            },
         }
     }
 </script>

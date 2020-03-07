@@ -133,7 +133,10 @@ export const store = new Vuex.Store({
         },
         getBandById: state => id => {
             return state.bands.find(band => band.id === id);
-        }
+        },
+        bandImageNames: state => {
+            return state.bands.map(band => band.cover.img);
+        },
     },
     mutations: {
         updateBands: (state, payload) => {
